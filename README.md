@@ -3,7 +3,7 @@
 
 **Project Overview**
 
-This Simple CRUD (Create, Read, Update, Delete) project is built with FastAPI, demonstrating a basic RESTful API that manages items. It uses an asynchronous approach with a PostgreSQL database backend, showcasing API creation, database integration, microservices design, and containerization by developing a small-scale RESTful API which simulates a simple document repository.
+This Simple CRUD (Create, Read, Update, Delete) project is built with FastAPI, demonstrating a basic RESTful API that manages items. It uses an asynchronous approach with a PostgreSQL database backend, showcasing API creation, database integration, microservices design, and containerization by developing a small-scale RESTful API that simulates a simple document repository.
 
 **Features**
 
@@ -61,6 +61,9 @@ The API is covered with some basic test cases as an example using pytest. This c
 ```bash
   docker-compose run api-service pytest -v
 ```
+
+**Authentication**
+The API is secured by API Key. The key should be pasted into the .env file.
 
 ***Link to test technical requirements***
  - https://drive.google.com/file/d/1aDQbMvxXyQTZwjPte4OC70HIqi5MR-tP/view  (Backend Engineer for GetGenAI - a venture-backed startup pioneering the
