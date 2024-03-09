@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  api-service:
+    container_name: simple-crud-api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    depends_on:
+      - db
+    volumes:
+      - ./:/code
+      - ./.pytest_cache:/code/.pytest_cache
+    environment:
+      DATABASE_URL: ${DATABASE_URL}
+      CB_API_KEY: ${API_KEY}
+    restart: always
+    command: bash -c 'while !</dev/tcp/db/5434; do sleep 1; done; alembic upgrade head; uvicorn app.main:app --host 0.0.0.0 --reload'
+    ports:
+      - 8080:8000
+
+  db:
+    image: postgres:15-alpine
+    volumes:
+      - psql_data:/var/lib/postgresql/data/
+    ports:
+      - 5434:5434
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    command: -p 5434
+
+volumes:
+  psql_data:
