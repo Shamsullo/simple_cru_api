@@ -1,5 +1,4 @@
-# Test task: Simple CRUD API
-[![codecov](https://codecov.io/gh/Shamsullo/simple_crud_api/main/graph/badge.svg)](https://codecov.io/gh/Shamsullo/simple_crud_api)
+# Test task: Simple async CRUD API microservice with FastAPI
 
 **Project Overview**
 
